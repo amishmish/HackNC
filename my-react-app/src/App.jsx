@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://mobileimages.lowes.com/marketingimages/d0c68e7e-54a6-4d2d-a53d-385f8a156529/lowes-dp18-328966-og.png" target="_blank">
+        <a target="_blank">
           <img src={"https://mobileimages.lowes.com/marketingimages/d0c68e7e-54a6-4d2d-a53d-385f8a156529/lowes-dp18-328966-og.png"} className="logo" alt="Vite logo" />
         </a>
       </div>
