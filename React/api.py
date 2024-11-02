@@ -18,10 +18,12 @@ def get_products(word):
 
 def get_project_materials(project_description):
     response = llm.generate(f"List the materials needed to build a {project_description} using products from Lowe's.")
-    response = 
+    return response.split("/n")
 
-def match_materials_with_product(materials, products):
-    match_product = []
+def get_material_quantities(material, item):
+    response = llm.generate(f"How much of the each of these materials do we ")
+
+
     
 
 
