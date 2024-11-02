@@ -9,8 +9,6 @@ os.environ["sk-proj-sxHxSiJCs310mkfwRv9AjGg3RFcsj30M8m1kkDUATM0q2xL9p4oGAxJYAMu6
 
 llm = ChatOpenAI(model="gpt-4o-mini")
 
-endpoint = "https://www.lowes.com/?cm_mmc=src-_-c-_-brd-_-mdv-_-ggl-_-CRP_SRC_Brand_BC_Traffic_MULTI-_-lowes-_-0-_-0-_-0&gad_source=1&gclid=Cj0KCQjwm5e5BhCWARIsANwm06gI8TCRohw0qsAnwR0v7-cNJgJKV-n35ZuKd1a-qybzymSdo1PluO4aArKsEALw_wcB&gclsrc=aw.ds"
-
 def get_products(word):
     link = 'https://data.unwrangle.com/api/getter/?platform=lowes_search&search='+word+'&api_key=8e2ed113c38dce504bd8557d66cb54719be94205'
     response = requests.get(link)
@@ -23,7 +21,6 @@ def get_project_materials(project_description):
 def get_material_quantities(material, item):
     response = llm.generate(f"How much of the each of these materials (" + material + ") do we need to make a " + item)
     print(response)
-
 
 
 
