@@ -22,7 +22,10 @@ def get_project_materials(project_description):
 
 def get_material_quantities(material, item):
     response = llm.generate(f"How much of the each of these materials (" + material + ") do we need to make a " + item)
-    
+    print(response)
+
+
+
 
 
     
