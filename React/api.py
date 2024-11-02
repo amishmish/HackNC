@@ -21,7 +21,8 @@ def get_project_materials(project_description):
     return response.split("/n")
 
 def get_material_quantities(material, item):
-    response = llm.generate(f"How much of the each of these materials do we ")
+    response = llm.generate(f"How much of the each of these materials (" + material + ") do we need to make a " + item)
+    
 
 
     
