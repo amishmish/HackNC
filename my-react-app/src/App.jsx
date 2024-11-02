@@ -20,8 +20,8 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Your Lowe's DIY project</h1>
-      <div className="card">
+      <h1>Nail it with Lowe's!</h1>
+       {/*<div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
@@ -31,11 +31,11 @@ function App() {
       </div>
       <p className="read-the-docs">
         Tell us more information!
-      </p>
+      </p>*/}
 
 
       <label>
-        What type of project? (painting/building)
+        What would you like to build today?   
         <input
           value={firstName}
           onChange={e => setFirstName(e.target.value)}
@@ -56,7 +56,7 @@ function App() {
         <p>Your name is {firstName}.</p>
       }
       {ageAsNumber > 0 &&
-        <p>Your age is {ageAsNumber}.</p>
+        <p>Your recommended materials are {ageAsNumber}.</p>
       }
     </>
   )
