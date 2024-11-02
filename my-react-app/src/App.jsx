@@ -14,7 +14,7 @@ function App() {
     <>
       <div>
         <a target="_blank">
-          <img src={"https://www.lowescdn.com/images/logos/Lowes_logo_CMYK_blue.png"} className="logo" alt="Vite logo" />
+          <img src={"https://mobileimages.lowes.com/marketingimages/2b928fb1-a997-4a2c-8824-4b149b75b8ef/lowes-logos-dp18-332098-og.jpg"} className="logo" alt="Vite logo" />
         </a>
       </div>
       {/*<div>
