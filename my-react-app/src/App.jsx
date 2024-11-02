@@ -5,6 +5,10 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [firstName, setFirstName] = useState('');
+  const [age, setAge] = useState('20');
+  const ageAsNumber = Number(age);
+
 
   return (
     <>
@@ -16,7 +20,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Your Lowe's DIY project</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -26,8 +30,34 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Tell us more information!
       </p>
+
+
+      <label>
+        What type of project? (painting/building)
+        <input
+          value={firstName}
+          onChange={e => setFirstName(e.target.value)}
+        />
+      </label>
+      <label>
+        Age:
+        <input
+          value={age}
+          onChange={e => setAge(e.target.value)}
+          type="number"
+        />
+        <button onClick={() => setAge(ageAsNumber + 10)}>
+          Add 10 years
+        </button>
+      </label>
+      {firstName !== '' &&
+        <p>Your name is {firstName}.</p>
+      }
+      {ageAsNumber > 0 &&
+        <p>Your age is {ageAsNumber}.</p>
+      }
     </>
   )
 }
