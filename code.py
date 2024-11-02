@@ -10,3 +10,5 @@ os.environ["sk-proj-sxHxSiJCs310mkfwRv9AjGg3RFcsj30M8m1kkDUATM0q2xL9p4oGAxJYAMu6
 
 llm = ChatOpenAI(model="gpt-4o-mini")
 
+
+
