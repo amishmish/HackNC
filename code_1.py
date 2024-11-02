@@ -11,7 +11,7 @@ llm = ChatOpenAI(model="gpt-4o-mini",api_key="sk-proj-sxHxSiJCs310mkfwRv9AjGg3RF
 def get_products(word):
     link = 'https://data.unwrangle.com/api/getter/?platform=lowes_search&search='+word+'&api_key=8e2ed113c38dce504bd8557d66cb54719be94205'
     response = requests.get(link)
-    return response.json()
+    return response.json([results])
 
 
 
