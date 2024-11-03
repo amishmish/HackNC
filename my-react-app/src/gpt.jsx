@@ -2,7 +2,10 @@ import getpass from 'getpass';
 import axios from 'axios';
 import { ChatOpenAI } from 'langchain_openai';
 
-process.env["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"] = await getpass.getPass();
+require('dotenv').config()
+console.log(`Hello ${process.env.OPENAI_API_KEY}`)
+
+// process.env[OPENAI_API_KEY] = await getpass.getPass();
 
 const llm = new ChatOpenAI({ model: "gpt-4o-mini" });
 
