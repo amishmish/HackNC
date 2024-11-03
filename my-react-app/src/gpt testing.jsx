@@ -4,14 +4,37 @@ import axios from "axios";
 import { ChatOpenAI } from "@langchain/openai";
 // import dotenv from 'dotenv'; // dotenv is a Node.js module that reads key-value pairs from a .env file and adds them to the process.env object in your Node.js environment.
 
+// async function getProjectMaterials(projectDescription) { //asks GPT for materials for project input
+    // const link = 'https://data.unwrangle.com/api/getter/?platform=lowes_search&search=' + projectDescription + '&api_key=8e2ed113c38dce504bd8557d66cb54719be94205';
+    // const response = await llm.generate("List the materials needed to build a ${projectDescription} using products from ${link} and place each item on a new line.");
+    // return response.split('\n');
+//}
+
+async function getProjectComponents(input) {
+    // Asks ChatGPT for materials needed for project.
+    const response = await llm.generate("List the materials needed to build a  " + input + " and place each item on a new line.")
+    const materialList = response.split('\n')
+    materialList.pop(0) // gets rid of first line
+    materialList.pop(materialList.length - 1) // gets rid of the last line
+    //for (item in materialList) { 
+        //if ("" not in item) {
+            //...
+        //} 
+    //}
+
+}
 // let's look closely at this python function:
 // def get_products(word): # gets product from Lowe's API based on word search
     // """Returns first product in results of searching for <word> in Lowe's API"""
-    // global lowes_word""
+    // global lowes_word
     // link = 'https://data.unwrangle.com/api/getter/?platform=lowes_search&search='+word+'&api_key=8e2ed113c38dce504bd8557d66cb54719be94205'
     // response = requests.get(link)
     // lowes_word = word
     // return response.json()["Results"][0]
+
+async function fetchProduct() {
+    
+}
 
 
 
@@ -28,11 +51,6 @@ async function getProduct(word) { // gets product from Lowe's API based on word 
     return response.data.Results[0];
 }
 
-async function getProjectMaterials(projectDescription) { //asks GPT for materials for project input
-    const link = 'https://data.unwrangle.com/api/getter/?platform=lowes_search&search=' + projectDescription + '&api_key=8e2ed113c38dce504bd8557d66cb54719be94205';
-    const response = await llm.generate("List the materials needed to build a ${projectDescription} using products from ${link} and place each item on a new line.");
-    return response.split('\n');
-}
 
 async function getProjectQuantity(materials, project) { //asks GPT for materials for project input
     const returnDict = {};
