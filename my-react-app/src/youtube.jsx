@@ -1,4 +1,3 @@
-const maxresultInput = document.getElementById('maxresult-input');
 const orderInput = document.getElementById('order-input');
 const videoList = document.getElementById('videoListContainer');
 var pageToken = '';
@@ -20,7 +19,7 @@ function paginate(e, obj) {
 
 function execute(project) {
     const searchString = project;
-    const maxresult = maxresultInput.value;
+    const maxresult = 3;
     const orderby = orderInput.value;
  
     var arr_search = {
