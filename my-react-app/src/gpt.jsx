@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 
 //require('dotenv').config()
 dotenv.config();
-console.log(`Hello ${process.env.OPENAI_API_KEY}`)
+console.log(`Hello ${import.meta.env.VITE_OPENAI_API_KEY}`)
 
 // process.env[OPENAI_API_KEY] = await getpass.getPass();
 
