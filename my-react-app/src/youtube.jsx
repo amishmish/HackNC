@@ -1,5 +1,3 @@
-const ytForm = document.getElementById('yt-form');
-const keywordInput = document.getElementById('keyword-input');
 const maxresultInput = document.getElementById('maxresult-input');
 const orderInput = document.getElementById('order-input');
 const videoList = document.getElementById('videoListContainer');
@@ -20,8 +18,8 @@ function paginate(e, obj) {
     execute();
 }
 
-function execute() {
-    const searchString = keywordInput.value;
+function execute(project) {
+    const searchString = project;
     const maxresult = maxresultInput.value;
     const orderby = orderInput.value;
  
