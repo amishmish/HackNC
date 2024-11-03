@@ -2,7 +2,8 @@ import { useState } from 'react'
 {/*import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'*/}
 import './App.css'
-import './gpt.js'
+
+// import './gpt.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -80,7 +81,7 @@ function App() {
 
       <div>
         <label> 
-          What are the dimensions of your project?  (in x in) 
+          What are the dimensions of your project?  (inches x inches) 
           <input className="input"
             value={object2}
             onChange={e => setObject2(e.target.value)}
@@ -99,9 +100,9 @@ function App() {
         <p>Your recommended material quantity is {object2}.</p>
       }
       */}
-      <div>
+      {/*<div>
         <p>getProjectMaterials({object1})</p>
-      </div>
+      </div>*/}
       
     </>
   )
