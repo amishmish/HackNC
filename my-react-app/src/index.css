@@ -66,8 +66,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
-head{
-  border-style: double;
-  border-color: #ffffff;
-}
