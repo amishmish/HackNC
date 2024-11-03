@@ -1,19 +1,27 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+{/*import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'*/}
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
   const [object, setObject] = useState('');
-  const [age, setAge] = useState('20');
-  const ageAsNumber = Number(age);
-
+  {/*const [age, setAge] = useState('20');
+  const ageAsNumber = Number(age);*/}
+  function afterInput(value) {
+    console.log(value)
+  }
 
   return (
     <>
       <div>
-        <a target="_blank">
+        {/*<a target="_blank">
+          <img src={"https://mobileimages.lowes.com/marketingimages/2b928fb1-a997-4a2c-8824-4b149b75b8ef/lowes-logos-dp18-332098-og.jpg"}
+          className="logo"
+          alt="vitelogo"
+          {/*style={styles.cover} />
+        </a>*/}
+        <a href="https://www.lowes.com/" target="_blank">
           <img src={"https://www.lowescdn.com/images/logos/Lowes_logo_CMYK_blue.png"} className="logo" alt="Vite logo" />
         </a>
       </div>
@@ -38,14 +46,20 @@ function App() {
         Tell us more information!
       </p>*/}
 
-
-      <label>
-        What would you like to build today?   
-        <input
-          value={object}
-          onChange={e => setObject(e.target.value)}
-        />
-      </label>
+      <div>
+        <label> 
+          What would you like to build today?   
+          <input className="input"
+            value={object}
+            onChange={e => setObject(e.target.value)}
+            onKeyUp={event => {
+              if (event.key === 'Enter') {
+                afterInput({object})}}
+              }
+          />
+        </label>
+      </div>
+      
       {/*<label>
         Age:
         <input
@@ -65,6 +79,7 @@ function App() {
       }*/}
     </>
   )
+
 }
 
 export default App
