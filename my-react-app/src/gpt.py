@@ -4,10 +4,9 @@ import getpass
 import os
 import requests
 from langchain_openai import ChatOpenAI
-import pandas as pd
-import secure
+# import pandas as pd
 
-os.environ[openai_api_key] = getpass.getpass()
+# os.environ[openai_api_key] = getpass.getpass()
 
 llm = ChatOpenAI(model="gpt-4o-mini")
 
@@ -56,8 +55,8 @@ def get_product_costs(): #materials comes from the gpt function, input material 
 def display_table(): #table with material, quantity, cost, total cost
     print("Project Materials and Costs")
     data = { "Material": material_list, "Quantity": quantity_list, "Cost per Item": cost_list, "Total Cost per Item": total_cost_list}
-    df = pd.DataFrame(data)
-    print(df)
+    # df = pd.DataFrame(data)
+    # print(df)
     print(get_product_costs())
 
 quantity_list = get_project_quantity(project_descript)
