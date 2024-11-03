@@ -80,7 +80,7 @@ function App() {
         <p>Your recommended materials are {ageAsNumber}.</p>
       }*/}
 
-      <div>
+      {/*<div>
         <label> 
           What are the dimensions of your project?  (inches x inches) 
           <input className="input"
@@ -92,7 +92,7 @@ function App() {
               }
           />
         </label>
-      </div>
+      </div>*/}
       {/*
       {object1 !== '' &&
         <p>Your recommended materials are {object1}.</p>
