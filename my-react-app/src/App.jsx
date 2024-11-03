@@ -1,19 +1,7 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import {Image, StyleSheet} from 'react-native';
+{/*import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'*/}
 import './App.css'
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  cover: {
-    width: 6000,
-    height: 3000,
-    resizeMode: 'cover',
-  },
-});
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,12 +13,14 @@ function App() {
   return (
     <>
       <div>
-        <a target="_blank">
-          <img 
-          src={"https://mobileimages.lowes.com/marketingimages/2b928fb1-a997-4a2c-8824-4b149b75b8ef/lowes-logos-dp18-332098-og.jpg"}
+        {/*<a target="_blank">
+          <img src={"https://mobileimages.lowes.com/marketingimages/2b928fb1-a997-4a2c-8824-4b149b75b8ef/lowes-logos-dp18-332098-og.jpg"}
           className="logo"
-          alt="Lowes logo"
-          style={styles.cover} />
+          alt="vitelogo"
+          {/*style={styles.cover} />
+        </a>*/}
+        <a href="https://www.lowes.com/" target="_blank">
+          <img src={"https://www.lowescdn.com/images/logos/Lowes_logo_CMYK_blue.png"} className="logo" alt="Vite logo" />
         </a>
       </div>
       {/*<div>
@@ -54,14 +44,16 @@ function App() {
         Tell us more information!
       </p>*/}
 
-
-      <label>
-        What would you like to build today?   
-        <input
-          value={object}
-          onChange={e => setObject(e.target.value)}
-        />
-      </label>
+      <div>
+        <label> 
+          What would you like to build today?   
+          <input className="input"
+            value={object}
+            onChange={e => setObject(e.target.value)}
+          />
+        </label>
+      </div>
+      
       {/*<label>
         Age:
         <input
