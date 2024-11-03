@@ -2,6 +2,7 @@ import { useState } from 'react'
 {/*import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'*/}
 import './App.css'
+import '/gpt.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -90,13 +91,18 @@ function App() {
           />
         </label>
       </div>
-
+      {/*
       {object1 !== '' &&
         <p>Your recommended materials are {object1}.</p>
       }
       {object2 !== '' &&
         <p>Your recommended material quantity is {object2}.</p>
       }
+      */}
+      <div>
+        <p>getProjectMaterials({object1})</p>
+      </div>
+      
     </>
   )
 
