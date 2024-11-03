@@ -2,8 +2,11 @@
 
 import axios from "axios";
 import { ChatOpenAI } from "@langchain/openai";
-// import dotenv from 'dotenv'; // dotenv is a Node.js module that reads key-value pairs from a .env file and adds them to the process.env object in your Node.js environment.
-// dotenv.config();
+import dotenv from 'dotenv';
+// dotenv is a Node.js module that reads key-value pairs from a .env file and adds them to the process.env object in your Node.js environment.
+
+dotenv.config();
+console.log(`Hello ${process.env.OPENAI_API_KEY}`)
 console.log("Hello ${process.env.'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'}");
 
 const llm = new ChatOpenAI({ model: "gpt-4o-mini" });
@@ -24,6 +27,7 @@ async function getProjectComponents(input) {
 async function fetchProducts(input) {
     // Uses Unwrangle to get Lowe's product matching each material in dictionary.
     let initialMaterialDict = getProjectComponents(input);
+    let totalCost = 0.0;
     let productDict = newObject();
     for (key in initialMaterialDict) {
         let wordToSearch = key.replaceAll(" ", "+");
@@ -35,56 +39,17 @@ async function fetchProducts(input) {
             // "model_no":..., "in_stock":..., "social_proof_msg":..., "highlights":..., "images":[list],
             // "price":..., "price_reduced":..., "currency":..., etc.}
         productDict[firstProduct["name"]] = [firstProduct["url"],firstProduct["price"]]
+        if (firstProduct["price"] != "null") {
+            totalCost += firstProduct["price"];
+        }     
     }
-    return productDict; 
-}
-
-
-// process.env[OPENAI_API_KEY] = await getpass.getPass();
-
-
-async function getProjectQuantity(materials, project) { //asks GPT for materials for project input
-    const returnDict = {};
-    for (const item of materials) {
-        const response = await llm.generate("How much of ${item} do we need to make ${project}?");
-        returnDict[item] = response;
-    }
-    return returnDict;
-}
-
-async function getProductCosts(quantityDict) { //materials comes from the gpt function, input material list??
-    let totalCost = 0;
-    const totalCostList = [];
-    const costList = [];
-    const materials = Object.keys(quantityDict);
-    const quantities = Object.values(quantityDict);
-
-    for (let idx = 0; idx < materials.length; idx++) {
-        const product = await getProduct(materials[idx]); //assign product var to matching Lowe's product based on material
-        const productCost = product.price; //find price
-        const quantity = parseInt(quantities[idx]);
-        costList.push(productCost);
-        totalCostList.push(productCost * quantity);
-        totalCost += (productCost * quantity);
-    }
-
-    return [totalCost, costList, totalCostList];
-}
-
-function displayTable(materials, quantity, costs, totalCosts) { //table with material, quantity, cost, total cost
-    console.log("Project Materials and Costs");
-    const data = { "Material": materials, "Quantity": quantity, "Cost per Item": costs, "Total Cost per Item": totalCosts };
-    return data;
+    return [ productDict, totalCost ]; 
 }
 
 async function main(input) {
-    const materials = await getProjectMaterials(input);
-    const quantities = await getProjectQuantity(materials, input);
-
-    const stuff = await getProductCosts(quantities);
-    const totalCost = stuff[0];
-    const costs = stuff[1];
-    const totalCosts = stuff[2];
-    return displayTable(materials, Object.values(quantities), costs, totalCosts);
+    const [productDict, totalCost] = fetchProducts(input);
+    console.log(productDict);
+    console.log(totalCost);
 }
 
+main();
