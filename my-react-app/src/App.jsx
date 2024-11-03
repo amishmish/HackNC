@@ -72,9 +72,7 @@ function App() {
           Add 10 years
         </button>
       </label>*/}
-      {object1 !== '' &&
-        <p>Your recommended materials are {object1}.</p>
-      }
+
       {/*{ageAsNumber > 0 &&
         <p>Your recommended materials are {ageAsNumber}.</p>
       }*/}
@@ -92,6 +90,13 @@ function App() {
           />
         </label>
       </div>
+
+      {object1 !== '' &&
+        <p>Your recommended materials are {object1}.</p>
+      }
+      {object2 !== '' &&
+        <p>Your recommended material quantity is {object2}.</p>
+      }
     </>
   )
 
