@@ -63,4 +63,5 @@ def main(input):
     totalCost = stuff[0]
     costs = stuff[1]
     totalCosts = stuff[2]
+    return display_table(materials, quantities.values, costs, totalCosts)
     
