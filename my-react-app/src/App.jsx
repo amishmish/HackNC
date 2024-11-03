@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [firstName, setFirstName] = useState('');
+  const [object, setObject] = useState('');
   const [age, setAge] = useState('20');
   const ageAsNumber = Number(age);
 
@@ -13,13 +13,18 @@ function App() {
   return (
     <>
       <div>
+        <a target="_blank">
+          <img src={"https://www.lowescdn.com/images/logos/Lowes_logo_CMYK_blue.png"} className="logo" alt="Vite logo" />
+        </a>
+      </div>
+      {/*<div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
-      </div>
+      </div>*/}
       <h1>Nail it with Lowe's!</h1>
        {/*<div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
@@ -37,11 +42,11 @@ function App() {
       <label>
         What would you like to build today?   
         <input
-          value={firstName}
-          onChange={e => setFirstName(e.target.value)}
+          value={object}
+          onChange={e => setObject(e.target.value)}
         />
       </label>
-      <label>
+      {/*<label>
         Age:
         <input
           value={age}
@@ -51,13 +56,13 @@ function App() {
         <button onClick={() => setAge(ageAsNumber + 10)}>
           Add 10 years
         </button>
-      </label>
-      {firstName !== '' &&
-        <p>Your name is {firstName}.</p>
+      </label>*/}
+      {object !== '' &&
+        <p>Your recommended materials are {object}.</p>
       }
-      {ageAsNumber > 0 &&
+      {/*{ageAsNumber > 0 &&
         <p>Your recommended materials are {ageAsNumber}.</p>
-      }
+      }*/}
     </>
   )
 }
