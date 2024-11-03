@@ -2,7 +2,8 @@ import { useState } from 'react'
 {/*import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'*/}
 import './App.css'
-import './gpt.jsx'
+
+// import './gpt.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -99,9 +100,9 @@ function App() {
         <p>Your recommended material quantity is {object2}.</p>
       }
       */}
-      <div>
+      {/*<div>
         <p>getProjectMaterials({object1})</p>
-      </div>
+      </div>*/}
       
     </>
   )
