@@ -5,7 +5,8 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [object, setObject] = useState('');
+  const [object1, setObject1] = useState('');
+  const [object2, setObject2] = useState('');
   {/*const [age, setAge] = useState('20');
   const ageAsNumber = Number(age);*/}
   function afterInput(value) {
@@ -50,11 +51,11 @@ function App() {
         <label> 
           What would you like to build today?   
           <input className="input"
-            value={object}
-            onChange={e => setObject(e.target.value)}
+            value={object1}
+            onChange={e => setObject1(e.target.value)}
             onKeyUp={event => {
               if (event.key === 'Enter') {
-                afterInput({object})}}
+                afterInput({object1})}}
               }
           />
         </label>
@@ -71,12 +72,26 @@ function App() {
           Add 10 years
         </button>
       </label>*/}
-      {object !== '' &&
-        <p>Your recommended materials are {object}.</p>
+      {object1 !== '' &&
+        <p>Your recommended materials are {object1}.</p>
       }
       {/*{ageAsNumber > 0 &&
         <p>Your recommended materials are {ageAsNumber}.</p>
       }*/}
+
+      <div>
+        <label> 
+          What are the dimensions of your project?  (in x in) 
+          <input className="input"
+            value={object2}
+            onChange={e => setObject2(e.target.value)}
+            onKeyUp={event => {
+              if (event.key === 'Enter') {
+                afterInput({object2})}}
+              }
+          />
+        </label>
+      </div>
     </>
   )
 
