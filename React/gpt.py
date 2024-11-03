@@ -18,7 +18,7 @@ total_cost = 0
 material_list = list()
 quantity_list = list()
 
-def get_products(word): # gets product from Lowe's API based on word search
+def get_product(word): # gets product from Lowe's API based on word search
     """Returns first product in results of searching for <word> in Lowe's API"""
     global lowes_word
     link = 'https://data.unwrangle.com/api/getter/?platform=lowes_search&search='+word+'&api_key=8e2ed113c38dce504bd8557d66cb54719be94205'
@@ -34,30 +34,46 @@ def get_project_materials(project_description): #asks GPT for materials for proj
     project_descript = project_description #make this global because it will be used on other places
     return response.split("\n")
 
-def get_project_quantity(project_description): #asks GPT for materials for project input
+def get_project_quantity(materials, project): #asks GPT for materials for project input
     """Returns list of quantities of each material needed for <project description> based on GPT's response"""
-    link = 'https://data.unwrangle.com/api/getter/?platform=lowes_search&search='+lowes_word+'&api_key=8e2ed113c38dce504bd8557d66cb54719be94205'
-    response = llm.generate(f"List the quantity of each material needed to build a {project_description} using products from {link} and place each item on a new line.")
-    return response.split("\n")
+    returndict = {}
+    for item in materials:
+        response = llm.generate(f"How much of "+item+" do we need to make "+ project + "?")
+        returndict[item] = response
 
-def get_product_costs(): #materials comes from the gpt function, input material list??
+    return returndict
+
+def get_product_costs(quantity_dict): #materials comes from the gpt function, input material list??
     """Updates each item's cost and builds a list for all of them"""
-    global total_cost
-    for idx in range(0, len(material_list)):
-        product = get_products(material_list[idx]) #assign product var to matching Lowe's product based on material
+    total_cost = 0
+    total_cost_list = []
+    cost_list = []
+    materials = quantity_dict.keys()
+    quantities = quantity_dict.values()
+
+    for idx in range(0, len(materials)):
+        product = get_product(materials[idx]) #assign product var to matching Lowe's product based on material
         product_cost = product['price'] #find price
-        quantity = int(quantity_list[idx])
+        quantity = int(quantities[idx])
         cost_list.append(product_cost)
         total_cost_list.append(product_cost * quantity)
         total_cost += (product_cost * quantity)
-    return total_cost
+    
+    stuff = [total_cost, cost_list, total_cost_list]
+    return stuff
 
-def display_table(): #table with material, quantity, cost, total cost
+def display_table(materials, quantity, costs, total_costs): #table with material, quantity, cost, total cost
     print("Project Materials and Costs")
-    data = { "Material": material_list, "Quantity": quantity_list, "Cost per Item": cost_list, "Total Cost per Item": total_cost_list}
-    df = pd.DataFrame(data)
-    print(df)
-    print(get_product_costs())
+    data = { "Material": materials, "Quantity": quantity, "Cost per Item": costs, "Total Cost per Item": total_costs}
+    return data
 
-quantity_list = get_project_quantity(project_descript)
-material_list = get_project_materials(project_descript)
+
+def main(input):
+    materials = get_project_materials(input)
+    quantities = get_project_quantity(materials, input)
+
+    stuff = get_product_costs(quantities)
+    totalCost = stuff[0]
+    costs = stuff[1]
+    totalCosts = stuff[2]
+    
