@@ -53,6 +53,7 @@ def get_product_costs(): #materials comes from the gpt function, input material 
     return total_cost
 
 def display_table(): #table with material, quantity, cost, total cost
+    """..."""
     print("Project Materials and Costs")
     data = { "Material": material_list, "Quantity": quantity_list, "Cost per Item": cost_list, "Total Cost per Item": total_cost_list}
     df = pd.DataFrame(data)
