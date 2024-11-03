@@ -8,7 +8,9 @@ function App() {
   const [object, setObject] = useState('');
   const [age, setAge] = useState('20');
   const ageAsNumber = Number(age);
-
+  function afterInput(value) {
+    console.log(value)
+  }
 
   return (
     <>
@@ -50,6 +52,10 @@ function App() {
           <input className="input"
             value={object}
             onChange={e => setObject(e.target.value)}
+            onKeyUp={event => {
+              if (event.key === 'Enter') {
+                afterInput({object})}}
+              }
           />
         </label>
       </div>
@@ -73,6 +79,7 @@ function App() {
       }*/}
     </>
   )
+
 }
 
 export default App
