@@ -81,7 +81,7 @@ function App() {
 
       <div>
         <label> 
-          What are the dimensions of your project?  (in x in) 
+          What are the dimensions of your project?  (inches x inches) 
           <input className="input"
             value={object2}
             onChange={e => setObject2(e.target.value)}
