@@ -6,8 +6,8 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
   const [object, setObject] = useState('');
-  const [age, setAge] = useState('20');
-  const ageAsNumber = Number(age);
+  {/*const [age, setAge] = useState('20');
+  const ageAsNumber = Number(age);*/}
   function afterInput(value) {
     console.log(value)
   }
