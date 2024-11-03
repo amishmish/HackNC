@@ -51,17 +51,18 @@ function App() {
 
       <div>
         <label> 
-          What would you like to build today?   
+          What would you like to build today? (single word please)
           <input className="input"
             value={object1}
             onChange={e => setObject1(e.target.value)}
             onKeyUp={event => {
               if (event.key === 'Enter') {
                 afterInput({object1})}}
-              }
+            }
           />
         </label>
       </div>
+
       
       {/*<label>
         Age:
