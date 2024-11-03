@@ -1,8 +1,10 @@
 // import getpass from 'getpass';
 import axios from "axios";
-import { ChatOpenAI } from 'langchain_openai';
+import { ChatOpenAI } from "@langchain/openai";
+import dotenv from 'dotenv';
 
-require('dotenv').config()
+//require('dotenv').config()
+dotenv.config();
 console.log(`Hello ${process.env.OPENAI_API_KEY}`)
 
 // process.env[OPENAI_API_KEY] = await getpass.getPass();

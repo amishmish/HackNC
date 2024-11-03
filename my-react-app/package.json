@@ -10,7 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@langchain/openai": "^0.3.11",
+    "axios": "^1.7.7",
     "dotenv": "^16.4.5",
+    "langchain": "^0.3.5",
+    "node-emv": "^1.0.22",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
