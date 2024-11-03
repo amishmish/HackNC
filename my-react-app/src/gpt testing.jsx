@@ -39,24 +39,8 @@ async function fetchProducts(input) {
     return productDict; 
 }
 
-// def get_products(word): # gets product from Lowe's API based on word search
-    // """Returns first product in results of searching for <word> in Lowe's API"""
-    // global lowes_word
-    // link = 'https://data.unwrangle.com/api/getter/?platform=lowes_search&search='+word+'&api_key=8e2ed113c38dce504bd8557d66cb54719be94205'
-    // response = requests.get(link)
-    // lowes_word = word
-    // return response.json()["Results"][0]
-
 
 // process.env[OPENAI_API_KEY] = await getpass.getPass();
-
-
-
-async function getProduct(word) { // gets product from Lowe's API based on word search
-    const link = 'https://data.unwrangle.com/api/getter/?platform=lowes_search&search=' + word + '&api_key=8e2ed113c38dce504bd8557d66cb54719be94205';
-    const response = await axios.get(link);
-    return response.data.Results[0];
-}
 
 
 async function getProjectQuantity(materials, project) { //asks GPT for materials for project input
